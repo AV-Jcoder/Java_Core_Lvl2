@@ -11,6 +11,9 @@ public class Task1 {
         String line = "arozaupalanalapuazora";
         boolean isPalindrom = isPalindrome(line);
         System.out.println("String is palindrom: " + isPalindrom);
+
+        isPalindrom = isPalidrome2(line);
+        System.out.println("String is palindrom: " + isPalindrom);
     }
 
     private static boolean isPalindrome(String line) {
@@ -24,5 +27,9 @@ public class Task1 {
             j--;
         }
         return true;
+    }
+
+    private static boolean isPalidrome2(String line) {
+        return new StringBuilder(line).reverse().toString().equalsIgnoreCase(line);
     }
 }
