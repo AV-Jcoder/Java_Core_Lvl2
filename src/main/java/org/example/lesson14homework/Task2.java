@@ -24,7 +24,7 @@ package org.example.lesson14homework;
  */
 
 /**
- * Инварианты
+ * Римские цифры нужно считать с конца.
  *
  * 1 - I        10 - X      100 - C
  * 2 - II       20 - XX     200 - CC
@@ -44,42 +44,20 @@ package org.example.lesson14homework;
 public class Task2 {
 
     public static void main(String[] args) {
-        String roman = "LXXC";
+        String roman = "CDXLIV";
         int arabic = getArabicNumber(roman);
         System.out.println(roman + " - " + arabic);
     }
 
     private static int getArabicNumber(String roman) {
         int len = roman.length();
-        int result = number(roman.charAt(len-1));
-        for (int i = 0; i < roman.length()-1; i++) {
-            if (roman.charAt(i) == 'I') {
-                if (roman.charAt(i + 1) == 'V' || roman.charAt(i + 1) == 'X') {
-                    result -= 1;
-                } else {
-                    result += 1;
-                }
-            } else if (roman.charAt(i) == 'V') {
-                result += 5;
-            } else if (roman.charAt(i) == 'X') {
-                if (roman.charAt(i + 1) == 'L'|| roman.charAt(i + 1) == 'C') {
-                    result -= 10;
-                } else {
-                    result += 10;
-                }
-            } else if (roman.charAt(i) == 'L') {
-                result += 50;
-            } else if (roman.charAt(i) == 'C') {
-                if (roman.charAt(i + 1) == 'D' || roman.charAt(i + 1) == 'M') {
-                    result -= 100;
-                } else {
-                    result += 100;
-                }
-            } else if (roman.charAt(i) == 'D') {
-                result += 500;
-            } else if (roman.charAt(i) == 'M') {
-                result += 1000;
-            }
+        int right = number(roman.charAt(len-1));
+        int current;
+        int result = right;
+        for (int i = len-2; i >= 0; i--) {
+            current = number(roman.charAt(i));
+            result += current < right ? -current : current;
+            right = current;
         }
         return result;
     }
