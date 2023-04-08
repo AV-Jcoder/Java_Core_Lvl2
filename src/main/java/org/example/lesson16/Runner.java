@@ -15,5 +15,14 @@ public class Runner {
         Laptop laptop = new Laptop(new Ssd(256_000), new Ram( 16_000), 2);
         laptop.load();
 
+        Class<? extends Laptop> aClass = laptop.getClass();
+        System.out.println(aClass.getName());
+        System.out.println(laptop);
+
+        System.out.println("Create computer");
+        Computer computer1 = new Computer();
+        System.out.println("Create laptop");
+        Laptop laptop1 = new Laptop();
+
     }
 }

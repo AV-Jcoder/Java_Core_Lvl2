@@ -4,9 +4,13 @@ public class Computer {
     private Ssd ssd;
     private Ram ram;
 
-    public Computer() {}
+    public Computer() {
+        super();
+        System.out.println("Constructor Computer()");
+    }
 
     public Computer(Ssd ssd, Ram ram) {
+        super();
         this.ssd = ssd;
         this.ram = ram;
     }
