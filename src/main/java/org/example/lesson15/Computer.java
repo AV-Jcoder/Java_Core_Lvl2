@@ -4,6 +4,14 @@ public class Computer {
     private Ssd ssd;
     private Ram ram;
 
+    {
+        System.out.println("Init block computer");
+    }
+
+    static {
+        System.out.println("Static block computer");
+    }
+
     public Computer() {
         super();
         System.out.println("Constructor Computer()");
