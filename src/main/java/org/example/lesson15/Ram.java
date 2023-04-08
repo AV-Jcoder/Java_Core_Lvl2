@@ -4,7 +4,7 @@ public class Ram {
 
     private int value;
 
-    Ram(int value) {
+    public Ram(int value) {
         this.value = value;
     }
 

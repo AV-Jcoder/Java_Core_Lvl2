@@ -4,7 +4,7 @@ public class Ssd {
 
     private int value;
 
-    Ssd(int value) {
+    public Ssd(int value) {
         this.value = value;
     }
 
