@@ -6,8 +6,11 @@ import org.example.lesson15.Ssd;
 
 public class Laptop extends Computer {
 
-    Laptop(Ssd ssd, Ram ram) {
+    private int weight;
+
+    Laptop(Ssd ssd, Ram ram, int weight) {
         super(ssd,ram);
+        this.weight = weight;
     }
 
     @Override

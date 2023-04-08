@@ -12,7 +12,8 @@ public class Runner {
         Computer computer = new Computer(ssd, ram);
         computer.load();
 
-        Laptop laptop = new Laptop(new Ssd(256_000), new Ram( 16_000));
+        Laptop laptop = new Laptop(new Ssd(256_000), new Ram( 16_000), 2);
+        laptop.load();
 
     }
 }
