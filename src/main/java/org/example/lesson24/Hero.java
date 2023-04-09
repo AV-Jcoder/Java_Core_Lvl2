@@ -22,7 +22,7 @@ public abstract class Hero {
         this.attackRate = attackRate;
     }
 
-    public void attackEnemy(Enemy enemy) {
-        enemy.getDamage(attackRate);
+    public int attackEnemy(Enemy enemy) {
+        return enemy.getDamage(attackRate);
     }
 }

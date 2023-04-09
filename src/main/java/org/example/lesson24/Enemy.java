@@ -24,11 +24,15 @@ public class Enemy implements Mortal{
         return armor;
     }
 
-    public void getDamage(int damage) {
-        if (health <= damage - armor) {
+    public int getDamage(int attackRate) {
+        int damage = attackRate - armor;
+        if (health <= damage) {
+            int healthCopy = health;
             health = 0;
+            return healthCopy;
         } else {
-            health -= damage - armor;
+            health -= damage;
+            return damage;
         }
     }
 

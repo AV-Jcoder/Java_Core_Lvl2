@@ -8,8 +8,9 @@ public class Mage extends Hero {
     }
 
     @Override
-    public void attackEnemy(Enemy enemy) {
-        super.attackEnemy(enemy);
+    public int attackEnemy(Enemy enemy) {
+        int damage = super.attackEnemy(enemy);
         System.out.println(getName() + " attack with fireBaLL " + enemy.getName());
+        return damage;
     }
 }

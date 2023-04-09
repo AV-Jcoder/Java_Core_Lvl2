@@ -10,6 +10,7 @@ public class TrainingGround {
         Hero coolWarrior = new Warrior("Artur");
         Enemy enemy = new Enemy("Zomboy",100);
         attackEnemy(List.of(mage, archer, coolWarrior), enemy);
+        Archer.Wolf wolf = new Archer("Vasja"). new Wolf("Drogi");
     }
 
     private static void attackEnemy(List<Hero> heroes, Enemy enemy) {
