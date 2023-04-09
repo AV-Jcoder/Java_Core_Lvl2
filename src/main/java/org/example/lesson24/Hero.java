@@ -1,18 +1,28 @@
 package org.example.lesson24;
 
-public class Hero {
+public abstract class Hero {
 
     private String name;
+    private int attackRate;
 
     public Hero(String name) {
         this.name = name;
+        attackRate = 10;
     }
 
     public String getName() {
         return name;
     }
 
-    public void attackEnemy() {
-        System.out.println(name + " attack the enemy!");
+    public int getAttackRate() {
+        return attackRate;
+    }
+
+    public void setAttackRate(int attackRate) {
+        this.attackRate = attackRate;
+    }
+
+    public void attackEnemy(Enemy enemy) {
+        enemy.getDamage(attackRate);
     }
 }
