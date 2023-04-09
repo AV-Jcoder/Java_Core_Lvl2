@@ -4,12 +4,12 @@ public class Warrior extends Hero {
 
     public Warrior(String name) {
         super(name);
-        setAttackRate(12);
+        setAttackRate(16);
     }
 
     @Override
     public void attackEnemy(Enemy enemy) {
         super.attackEnemy(enemy);
-        System.out.println(getName() + " attack enemy with sword.");
+        System.out.println(getName() + " attack with sword " + enemy.getName());
     }
 }

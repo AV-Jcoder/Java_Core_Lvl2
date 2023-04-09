@@ -8,15 +8,17 @@ public class TrainingGround {
         Hero mage = new Mage("Gendalf");
         Hero archer = new Archer("Robin Hood");
         Hero coolWarrior = new Warrior("Artur");
-        Enemy enemy = new Enemy(100);
+        Enemy enemy = new Enemy("Zomboy",100);
         attackEnemy(List.of(mage, archer, coolWarrior), enemy);
     }
 
     private static void attackEnemy(List<Hero> heroes, Enemy enemy) {
-        for (Hero hero : heroes) {
-            System.out.println("~~~~~~~~~");
-            hero.attackEnemy(enemy);
-            System.out.println("Enemy health:" + enemy.getHealth());
+        while (enemy.isAlive()) {
+            for (Hero hero : heroes) {
+                System.out.println("~~~~~~~~~");
+                hero.attackEnemy(enemy);
+                System.out.println(enemy.getName() + " health:" + enemy.getHealth());
+            }
         }
     }
 }
