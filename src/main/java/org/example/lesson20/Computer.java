@@ -1,6 +1,8 @@
 package org.example.lesson20;
 
-public abstract class Computer {
+import org.example.lesson22.Printable;
+
+public abstract class Computer implements Printable {
 
     private Ssd ssd;
     private Ram ram;
@@ -8,7 +10,7 @@ public abstract class Computer {
     public Computer() {
     }
 
-    public Computer(Ram ram, Ssd ssd) {
+    public Computer(final Ram ram, final Ssd ssd) {
         this.ram = ram;
         this.ssd = ssd;
     }
@@ -29,6 +31,7 @@ public abstract class Computer {
         this.ram = ram;
     }
 
+    @Override
     public void print() {
         System.out.println("Ram:" + ram.getValue() + ", Ssd:" + ssd.getValue());
     }
