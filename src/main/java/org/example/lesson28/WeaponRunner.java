@@ -1,8 +1,6 @@
 package org.example.lesson28;
 
-import org.example.lesson28.weapon.Bowl;
-import org.example.lesson28.weapon.IronSword;
-import org.example.lesson28.weapon.WoodenBowl;
+import org.example.lesson28.weapon.*;
 
 public class WeaponRunner {
 
@@ -13,7 +11,14 @@ public class WeaponRunner {
         Warrior<IronSword> war = new Warrior<>("Conan");
         war.setWeapon(new IronSword());
 
+        printWeaponDamage(war);
 
+    }
+
+    public static <T extends Weapon> void printWeaponDamage(Hero<? super IronSword> hero) {
+        hero.getWeapon();
+        hero.setWeapon(new AbsoluteIronSword());
+        System.out.println(hero.getWeapon().getDamage());
     }
 
 }
