@@ -45,7 +45,7 @@ public class IteratorRunner {
 
         startTime = System.currentTimeMillis();
         for (Integer i : list) {
-            System.out.println("Fore: " + list.get(i));
+            System.out.println("Fore: " + i);
         }
         endTime = System.currentTimeMillis();
         foreTime = endTime - startTime;
