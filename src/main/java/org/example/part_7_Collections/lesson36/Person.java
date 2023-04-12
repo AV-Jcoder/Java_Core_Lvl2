@@ -1,6 +1,6 @@
 package org.example.part_7_Collections.lesson36;
 
-public class Person {
+public class Person implements Comparable<Person> {
 
     private int id;
     private String firstName;
@@ -45,5 +45,10 @@ public class Person {
     @Override
     public String toString() {
         return String.format("Person:\nid=%d\nfirstName=%s\nlastName=%s\n", id, firstName, lastName);
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return this.id > o.id ? 1 : (this.id < o.id ? -1 : 0);
     }
 }
