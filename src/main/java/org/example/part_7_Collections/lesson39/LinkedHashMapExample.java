@@ -5,6 +5,10 @@ import org.example.part_7_Collections.lesson36.Person;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * LinkedHashMap это наследник HashMap. Внутри реалиует связный список из нод,
+ * поэтому ноды хранятся в порядке их добавления.
+ */
 public class LinkedHashMapExample {
 
     public static void main(String[] args) {
