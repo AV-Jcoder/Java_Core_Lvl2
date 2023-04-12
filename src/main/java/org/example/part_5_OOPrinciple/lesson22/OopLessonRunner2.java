@@ -1,6 +1,5 @@
 package org.example.part_5_OOPrinciple.lesson22;
 
-import org.example.lesson20.*;
 import org.example.part_5_OOPrinciple.lesson20.Laptop;
 import org.example.part_5_OOPrinciple.lesson20.Mobile;
 import org.example.part_5_OOPrinciple.lesson20.Ram;

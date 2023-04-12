@@ -1,6 +1,5 @@
 package org.example.part_6_Generics.lesson28;
 
-import org.example.lesson28.weapon.*;
 import org.example.part_6_Generics.lesson28.weapon.*;
 
 public class WeaponRunner {
