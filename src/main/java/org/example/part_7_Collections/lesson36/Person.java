@@ -44,7 +44,11 @@ public class Person implements Comparable<Person> {
 
     @Override
     public String toString() {
-        return String.format("Person:\nid=%d\nfirstName=%s\nlastName=%s\n", id, firstName, lastName);
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 
     @Override
