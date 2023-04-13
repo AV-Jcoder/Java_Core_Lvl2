@@ -1,7 +1,6 @@
 package org.example.part_7_Collections.lesson40homework.task1;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.example.part_7_Collections.lesson40homework.task1.ChatUtil.getChats;
@@ -37,7 +36,6 @@ public class Main {
         List<Chat> chats = new ArrayList<>(getChats());
         System.out.println(chats);
 
-        Collections.sort(chats);
         chats.sort(null);
         System.out.println(chats);
 
