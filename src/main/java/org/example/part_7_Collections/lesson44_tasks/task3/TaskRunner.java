@@ -18,16 +18,26 @@ import java.util.Set;
 public class TaskRunner {
 
     public static void main(String[] args) {
-        Map<String, String> map1 = Map.of("Marty", "Stepp", "Stuart", "Reges",
-                "Jessica", "Miller", "Amanda", "Camp", "Hal", "Perkins");
+        Map<String, String> map1 = Map.of(
+                "Marty", "Stepp",
+                "Stuart", "Reges",
+                "Jessica", "Miller",
+                "Amanda", "Camp",
+                "Hal", "Perkins"
+        );
         boolean result = isUnique(map1);
         System.out.println("Map1 is unique: " + result);
 
-        Map<String, String> map2 = Map.of("Marty", "Stepp", "Stuart", "Reges",
-                "Jessica", "Miller", "Amanda", "Camp", "Hal", "Perkins", "Bruse", "Reges");
-        result = isUnique(map2);
+        Map<String, String> map2 = Map.of(
+                "Marty", "Stepp",
+                "Stuart", "Reges",
+                "Jessica", "Miller",
+                "Amanda", "Camp",
+                "Hal", "Perkins",
+                "Bruse", "Reges"
+        );
+        result = isUnique2(map2);
         System.out.println("Map2 is unique: " + result);
-
     }
 
     public static boolean isUnique(Map<String, String> map) {
@@ -41,5 +51,10 @@ public class TaskRunner {
             }
         }
         return result;
+    }
+
+    public static boolean isUnique2(Map<String, String> map) {
+        return map.size() == new HashSet<>(map.values()).size();
+
     }
 }
