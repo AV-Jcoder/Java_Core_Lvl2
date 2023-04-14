@@ -7,8 +7,6 @@ import java.util.*;
  * и возвращает количество уникальных целых чисел в этом списке.
  * При получении пустого списка метод должен возвращать 0;
  *
- * По факту имеем метод, который возвращает числа у которых отсутствуют дубликаты.
- * Т.е. передав исходный массив [3,7,3,-1,2,3,7,2,15,15] метод вернёт 1.
  */
 public class TaskRunner {
 
@@ -20,6 +18,15 @@ public class TaskRunner {
         System.out.println(countUniqueOfList1);
     }
 
+    /**
+     * Метод, который считает и возвращает количество чисел,
+     * у которых отсутствуют дубликаты.
+     * Т.е. передав исходный массив
+     * [3,7,3,-1,2,3,7,2,15,15]
+     * метод вернёт 1.
+     * @param list
+     * @return
+     */
     private static int countUnique(List<Integer> list) {
         int count = 0;
         Map<Integer, Boolean> map = new HashMap<>();
@@ -38,6 +45,12 @@ public class TaskRunner {
         return count;
     }
 
+    /**
+     * Метод возвращает количество уникальных целых чисел
+     * в переданном списке.
+     * @param list
+     * @return
+     */
     private static int getCountUnique(List<Integer> list) {
         return new HashSet<Integer>(list).size();
     }
