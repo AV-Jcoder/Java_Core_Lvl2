@@ -8,5 +8,5 @@ public interface Cinematic<Year, Month, Film, Genre> {
     List<Film> getFilmsByYear(Year year);
     List<Film> getFilmsByYearAndMonth(Year year, Month month);
     List<Film> getFilmByGenre(Genre genre);
-    List<Film> getTopTen();
+    List<Film> getTopFive();
 }

@@ -3,16 +3,18 @@ package org.example.part_7_Collections.lesson44_z_hard;
 import org.example.part_7_Collections.lesson44_z_hard.filmUtils.Genre;
 import org.example.part_7_Collections.lesson44_z_hard.filmUtils.Month;
 
-public class Film {
+public class Film implements Comparable<Film> {
 
     private int id;
+    private String name;
     private int year;
     private Month month;
     private Genre genre;
     private double rating;
 
-    public Film(int id, int year, Month month, Genre genre, double rating) {
+    public Film(int id, String name, int year, Month month, Genre genre, double rating) {
         this.id = id;
+        this.name = name;
         this.year = year;
         this.month = month;
         this.genre = genre;
@@ -25,6 +27,14 @@ public class Film {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getYear() {
@@ -88,10 +98,16 @@ public class Film {
     public String toString() {
         return "Film{" +
                 "id=" + id +
+                ", name='" + name + '\'' +
                 ", year=" + year +
                 ", month=" + month +
                 ", genre=" + genre +
                 ", rating=" + rating +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Film other) {
+       return Double.compare(this.rating, other.rating);
     }
 }
