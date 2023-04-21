@@ -1,4 +1,4 @@
-package org.exampl1e.part_9_functional_programming.lesson_53_practice_hard;
+package org.example.part_9_functional_programming.lesson_53_practice_hard;
 
 import java.util.List;
 import java.util.Objects;
