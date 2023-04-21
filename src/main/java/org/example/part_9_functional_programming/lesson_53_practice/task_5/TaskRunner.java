@@ -2,6 +2,8 @@ package org.example.part_9_functional_programming.lesson_53_practice.task_5;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  *  * 5. Дан класс Person с полями firstName, lastName,
@@ -27,5 +29,15 @@ public class TaskRunner {
                 .max(Comparator.comparing(Person::getAge))
                 .ifPresent(System.out::println);
 
+
+        Map<Integer, List<Person>> collect = persons.stream()
+                .collect(Collectors.groupingBy(Person::getAge));
+
+        System.out.println(collect);
+
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+        Map<Integer, List<String>> collect1 = persons.stream()
+                .collect(Collectors.groupingBy(Person::getAge, Collectors.mapping(Person::getFullName, Collectors.toList())));
     }
 }
