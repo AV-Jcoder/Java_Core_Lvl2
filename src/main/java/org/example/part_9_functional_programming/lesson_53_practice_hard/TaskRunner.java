@@ -1,7 +1,5 @@
 package org.example.part_9_functional_programming.lesson_53_practice_hard;
 
-import org.exampl1e.part_9_functional_programming.lesson_53_practice_hard.Student;
-
 import java.util.List;
 import java.util.Map;
 
@@ -45,6 +43,7 @@ public class TaskRunner {
         Map<Integer, List<String>> integerListMap = StudUtils.GroupNamesByCourse(students);
         System.out.println(integerListMap);
         System.out.println("3~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
+        Map<Integer, Statistic> mapWithStatistic = StudUtils.getMapWithStatistic(students);
+        System.out.println(mapWithStatistic);
     }
 }

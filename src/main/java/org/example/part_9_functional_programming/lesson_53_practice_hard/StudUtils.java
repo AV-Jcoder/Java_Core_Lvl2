@@ -1,12 +1,10 @@
 package org.example.part_9_functional_programming.lesson_53_practice_hard;
 
-import org.exampl1e.part_9_functional_programming.lesson_53_practice_hard.Student;
-
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
 
 public final class StudUtils {
 
@@ -29,17 +27,24 @@ public final class StudUtils {
         return list.stream()
                 .sorted(Comparator.comparing(Student::getFirstName).thenComparing(Student::getLastName))
                 .collect(Collectors.groupingBy(Student::getCourse, Collectors.mapping(Student::getFullName, Collectors.toList())));
-
     }
 
-    public static List<Student> fullNameSort(List<Student> list) {
+    public static Map<Integer, Statistic> getMapWithStatistic(List<Student> list) {
         return list.stream()
                 .sorted(Comparator.comparing(Student::getFirstName).thenComparing(Student::getLastName))
-                .collect(Collectors.toList());
+                .collect(groupingBy(Student::getCourse,
+                        collectingAndThen(toList(), studs -> {
+                            List<String> studsFullName = studs.stream()
+                                    .map(stud -> stud.getFirstName() + " " + stud.getLastName())
+                                    .collect(toList());
+                            double avgAllMarks = studs.stream()
+                                    .mapToDouble(stud -> avgMark(stud))
+                                    .summaryStatistics()
+                                    .getAverage();
+                            Statistic statistic =  new Statistic(studsFullName, avgAllMarks);
+                            return statistic;
+                        })
+                        )
+                );
     }
-
-
-
-
-
 }
