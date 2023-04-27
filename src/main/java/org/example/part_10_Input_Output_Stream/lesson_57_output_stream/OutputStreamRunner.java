@@ -27,7 +27,5 @@ public class OutputStreamRunner {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 }
