@@ -1,4 +1,4 @@
-package org.example.part_10_Input_Output_Stream.lesson_55;
+package org.example.part_10_Input_Output_Stream.lesson_55_input_stream;
 
 import java.io.*;
 import java.nio.file.Path;

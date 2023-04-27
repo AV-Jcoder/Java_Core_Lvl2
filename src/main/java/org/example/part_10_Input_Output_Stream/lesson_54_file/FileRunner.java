@@ -1,4 +1,4 @@
-package org.example.part_10_Input_Output_Stream.lesson_54;
+package org.example.part_10_Input_Output_Stream.lesson_54_file;
 
 import java.io.File;
 import java.io.IOException;

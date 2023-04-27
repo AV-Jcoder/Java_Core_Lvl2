@@ -1,4 +1,4 @@
-package org.example.part_10_Input_Output_Stream.lesson_56;
+package org.example.part_10_Input_Output_Stream.lesson_56_reader;
 
 import java.io.*;
 import java.nio.file.Path;
