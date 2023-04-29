@@ -5,7 +5,10 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.util.Optional;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 /**
  * 5. Задан файл с java-кодом. Прочитать текст программы из файла и
@@ -22,19 +25,16 @@ public class TaskRunner {
     }
 
     private static void writeFileWithReverseChars(Path srcPath, Path destPath) throws IOException {
-        String srcText = Files.readString(srcPath);
-        StringBuilder targetText = new StringBuilder();
-        Scanner scanner = new Scanner(srcText);
-        while (scanner.hasNext()) {
-            String line = scanner.nextLine();
-            for (int i = line.length()-1; i >= 0; i--) {
-                targetText.append(line.charAt(i));
-            }
-            targetText.append(System.lineSeparator());
-        }
+        Stream<String> lines = Files.lines(srcPath);
+        StringBuilder targetText = lines
+                .map(StringBuilder::new)
+                .map(StringBuilder::reverse)
+                .map(n -> n.append(System.lineSeparator()))
+                .reduce(StringBuilder::append)
+                .get();
         if (Files.notExists(destPath)) {
             Files.createFile(destPath);
         }
-        Files.write(destPath, targetText.toString().getBytes(StandardCharsets.UTF_8));
+        Files.write(destPath, targetText.toString().getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
     }
 }
