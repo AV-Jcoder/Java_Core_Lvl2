@@ -18,10 +18,10 @@ public class TaskRunner {
     public static void main(String[] args) throws IOException {
         Path textPath = Path.of("resources", "text.txt");
         String text = Files.readString(textPath);
-        printWords(text);
+        printWordsIfLastAndFirstCharsEquals(text);
     }
 
-    private static void printWords(String text) {
+    private static void printWordsIfLastAndFirstCharsEquals(String text) {
         Scanner scanner = new Scanner(text.toLowerCase(Locale.ROOT));
         String current = null;
         if (scanner.hasNext()) {
@@ -30,12 +30,14 @@ public class TaskRunner {
         String next;
         while (scanner.hasNext()) {
             next = scanner.next();
-            int curSize = current.length();
-            int nextSize = next.length();
-            if (current.charAt(curSize-1) == next.charAt(0)) {
+            if (equalsLastAndFirstChars(current, next)) {
                 System.out.println(current + " : " + next);
             }
             current = next;
         }
+    }
+
+    private static boolean equalsLastAndFirstChars(String word1, String word2) {
+        return word1.charAt(word1.length()-1) == word2.charAt(0);
     }
 }
