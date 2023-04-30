@@ -7,6 +7,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Задача 1
@@ -37,6 +39,16 @@ public class TaskRunner {
             map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
         return map;
+    }
+
+    private static Map<Character, Integer> groupCharactersByFrequencyWithStream(Path path) throws IOException {
+        Stream<String> lines = Files.lines(path);
+        return lines.map(n -> n.chars())
+                .flatMapToInt(n -> n)
+                .filter(n -> Character.isLetter((char) n))
+                .mapToObj(n -> Character.valueOf((char) n))
+                .map(n -> Character.toLowerCase(n))
+                .collect(Collectors.toMap((n) -> n, n -> 1, (a,b) -> a + b));
     }
 
     private static void printCharacters(Map<Character, Integer> map) {
