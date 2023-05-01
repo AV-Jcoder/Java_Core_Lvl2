@@ -3,3 +3,4 @@ Product{id=2, name='Шапка', description='Вязаная зеленая ша
 Product{id=3, name='Ботинки', description='Осенние ботинки на толстой подошве', price=16.45}
 Product{id=4, name='Клавиатура К870', description='Клавиатура механическая', price=50.99}
 Product{id=5, name='Клавиатура М510', description='Клавиатура мембранная', price=9.99}
+Product{id=6, name='null', description='null', price=null}

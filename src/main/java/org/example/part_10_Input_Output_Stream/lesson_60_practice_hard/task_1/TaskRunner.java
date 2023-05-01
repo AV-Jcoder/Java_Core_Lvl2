@@ -44,6 +44,8 @@ public class TaskRunner {
                 "lesson_60_practice_hard","task_1","csv","items-price.csv");
         Path path3 = Path.of("src","main","java","org","example","part_10_Input_Output_Stream",
                 "lesson_60_practice_hard","task_1","csv","result.csv");
+        Path errorFilePath = Path.of("src","main","java","org","example","part_10_Input_Output_Stream",
+                "lesson_60_practice_hard","task_1","csv","errors.csv");
 
         List<Product> list1 = ProductUtils.getListProductItemNameFromCsv(path1);
         List<Product> list2 = ProductUtils.getListProductItemPriceFromCsv(path2);
@@ -53,5 +55,6 @@ public class TaskRunner {
         }
 
         ProductUtils.writeListProductToCsvFile(path3, mergedList);
+        ProductUtils.writeEmptyProductsToCsvFile(errorFilePath, mergedList);
     }
 }
