@@ -2,6 +2,7 @@ package org.example.part_12_Date_and_Time_API.lesson_64_practice.task_4;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 /**
  * 4.1
@@ -40,6 +41,10 @@ public class TaskRunner {
         LocalDate date1 = LocalDate.now();
         LocalDate date2 = LocalDate.of(2018, 7, 7);
         Period period = Period.between(date1, date2);
-        System.out.println(period);
+        System.out.println(period.getDays());
+        System.out.println(period.getMonths());
+        System.out.println(period.getYears());
+        long between = ChronoUnit.DAYS.between(date1, date2);
+        System.out.println("Days from Chronounit: " + between);
     }
 }
