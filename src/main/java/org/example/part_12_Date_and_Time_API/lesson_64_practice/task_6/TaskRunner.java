@@ -1,9 +1,6 @@
 package org.example.part_12_Date_and_Time_API.lesson_64_practice.task_6;
 
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.zone.ZoneRules;
 
 /**
@@ -24,5 +21,9 @@ public class TaskRunner {
         ZoneRules zoneRules = zoneId.getRules();
         ZoneOffset zoneOffset = zoneRules.getOffset(instant);
         ZonedDateTime zonedDateTime = instant.atZone(zoneOffset);
+        System.out.println(zonedDateTime);
+
+        ZonedDateTime zdt2 = ZonedDateTime.ofInstant(instant, zoneId);
+        System.out.println(zdt2);
     }
 }
