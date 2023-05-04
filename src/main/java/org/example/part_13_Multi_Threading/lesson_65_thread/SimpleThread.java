@@ -1,6 +1,4 @@
-package org.example.part_13_Multi_Threading.lesson_65;
-
-import java.util.concurrent.TimeUnit;
+package org.example.part_13_Multi_Threading.lesson_65_thread;
 
 public class SimpleThread extends Thread {
 

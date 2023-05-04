@@ -1,4 +1,4 @@
-package org.example.part_13_Multi_Threading.lesson_66;
+package org.example.part_13_Multi_Threading.lesson_66_runnable;
 
 import java.util.stream.IntStream;
 
