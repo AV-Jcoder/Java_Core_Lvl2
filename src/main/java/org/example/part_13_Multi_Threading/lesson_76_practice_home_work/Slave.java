@@ -21,7 +21,12 @@ public class Slave {
 
     public void findPartOnDump() {
         synchronized (dump) {
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("Slave " + this.hashCode() + " go to Dump.");
             grubbedParts = dump.findPartsByLuck();
+            System.out.println("Slave find: ");
+            grubbedParts.stream().forEach(System.out::println);
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         }
     }
 

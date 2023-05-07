@@ -21,7 +21,7 @@ public class Dump extends Thread {
 
     public Queue<Part> findPartsByLuck() {
         Queue<Part> queue = new LinkedList<>();
-        for (int i = 0; i < RandomUtils.getRandomInt(4); i++) {
+        for (int i = -1; i < RandomUtils.getRandomInt(3); i++) {
             if (!parts.isEmpty()) {
                 queue.add(parts.remove());
             }
@@ -32,7 +32,8 @@ public class Dump extends Thread {
     @Override
     public void run() {
         try {
-            for (int i = 0; i < 100; i++) {
+            TimeUnit.MILLISECONDS.sleep(100);
+            for (int i = 1; i < 100; i++) {
                 addRandomDayPackParts();
                 TimeUnit.MILLISECONDS.sleep(100);
             }

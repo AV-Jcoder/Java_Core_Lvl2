@@ -1,5 +1,7 @@
 package org.example.part_13_Multi_Threading.lesson_76_practice_home_work;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Задача 1
  *
@@ -34,20 +36,16 @@ public class TaskRunner {
         Professor prof1 = new Professor("Crazy One", slave1);
         Professor prof2 = new Professor("Crazy Two", slave2);
 
-        GameThread thread1 = new GameThread(dump, slave1, prof1);
-        GameThread thread2 = new GameThread(dump, slave2, prof2);
-
         dump.start();
-        thread1.start();
-        thread2.start();
+        prof1.start();
+        prof2.start();
 
         dump.join();
-        thread1.join();
-        thread2.join();
+        prof1.join();
+        prof2.join();
 
         System.out.println();
 
-        // TODO: print winner
         System.out.println(prof1);
         System.out.println(prof2);
 
@@ -55,46 +53,3 @@ public class TaskRunner {
 
     }
 }
-
-class GameThread extends Thread {
-
-    private Dump dump;
-    private Slave slave1;
-    private Professor prof1;
-
-    public GameThread(Dump dump, Slave slave1, Professor prof1) {
-        this.dump = dump;
-        this.slave1 = slave1;
-        this.prof1 = prof1;
-    }
-
-    @Override
-    public void run() {
-        int dayCount = 100;
-        while (dayCount > 0) {
-            slave1.findPartOnDump();
-            prof1.unloadSlave();
-            dayCount--;
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
