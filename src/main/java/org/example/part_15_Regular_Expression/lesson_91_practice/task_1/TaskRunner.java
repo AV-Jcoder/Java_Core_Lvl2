@@ -14,5 +14,10 @@ public class TaskRunner {
         String text = "a123ivani.vanov@gmail.com";
         String regex = "[a-zA-Z]\\w{2}[\\w\\.]*@\\w{3,}\\.(com|org)";
         System.out.println(text.matches(regex));
+
+        // валидация номера
+        text = "7-905-955-35-05";
+        regex = "(\\+?7|8)?[-\\s]?\\(?\\d{3}\\)?[-\\s]?\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{2}";
+        System.out.println(text.matches(regex));
     }
 }
