@@ -1,4 +1,4 @@
-package org.example.part_16_Reflection_API.lesson_92;
+package org.example.part_16_Reflection_API.lesson_92_intro;
 
 public class ReflectionApiExample {
 
