@@ -14,7 +14,7 @@ public class ReflectionApiExample {
 
         // Получение класса User
         // есть 3 способа получить класс. Рассмотрен только 2-ой.
-        // ? extends User так как переменная ivan может хранить потомков класса User.
+        // <? extends User> так как переменная ivan может хранить потомков класса User.
         Class<? extends User> userClass = ivan.getClass();
         System.out.println(userClass.getName());
         System.out.println(userClass.getCanonicalName()); // для вложенных классов
@@ -112,7 +112,34 @@ public class ReflectionApiExample {
         System.out.println("Invoker method user1.setName: " + setName.invoke(user1, "Vasilij"));
         System.out.println("Invoke method user1.getName: " + getName.invoke(user1));
 
+        try {
 
+            getPrivateField(ivan);
+
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+    /**
+     * Этот метод возвращает имя объекта
+     * переданного в параметрах, c помощью
+     * рефлексии.
+     *
+     * @param user
+     * @throws NoSuchMethodException
+     * @throws IllegalAccessException
+     * @throws InvocationTargetException
+     */
+    private static void getPrivateField(User user) throws IllegalAccessException, InvocationTargetException, NoSuchFieldException {
+        Class<? extends User> clazz = user.getClass();
+        Field name = clazz.getDeclaredField("name");
+        name.setAccessible(true);
+        System.out.print("Name of user is : ");
+        System.out.print(name.get(user));
+        System.out.println(". COOL!");
     }
 
     private class Test1 {}
