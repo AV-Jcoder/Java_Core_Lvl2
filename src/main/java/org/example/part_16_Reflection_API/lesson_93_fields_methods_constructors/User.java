@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public class User extends Person implements Serializable, Comparable<User> {
 
+    public static int idGenerator = 1;
+
     private String name;
 
     private User(Long id) {

@@ -120,6 +120,16 @@ public class ReflectionApiExample {
             throw new RuntimeException(e);
         }
 
+        System.out.println("---------------------------------------------------");
+        System.out.println("8. Обращение к статическим полям класса.");
+        System.out.println("---------------------------------------------------");
+        try {
+            Field idGenerator = userClass.getField("idGenerator");
+            System.out.println("class User, static int idGenerator = " + idGenerator.get(userClass));
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 
